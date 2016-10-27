@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "NUMBER";
+    public final static int REQ_DIAL = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +25,27 @@ public class MainActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.number_editText);
                 String message = editText.getText().toString();
                 intent.putExtra(EXTRA_MESSAGE,message);
-                startActivity(intent);
+                //startActivity(intent);
+                startActivityForResult(intent, REQ_DIAL);
 
             }
 
-        }
-        );
+        });
+
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQ_DIAL){
+            if(resultCode == RESULT_OK){
+                Toast.makeText(this, "Result OK", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this, "Result Cancelled", Toast.LENGTH_LONG).show();
+            }
+
+        }
+    }
 }

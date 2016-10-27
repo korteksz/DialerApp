@@ -2,6 +2,8 @@ package com.example.user.dialerapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DialerActivity extends AppCompatActivity {
@@ -20,6 +22,18 @@ public class DialerActivity extends AppCompatActivity {
         else{
             numberText.setText(R.string.no_number);
         }
+
+        Button dialerButton = (Button) findViewById(R.id.dialer_button);
+
+            dialerButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setResult(RESULT_OK);
+
+            }
+
+
+        };
 
     }
 }

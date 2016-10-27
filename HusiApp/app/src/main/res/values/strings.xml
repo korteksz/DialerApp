@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HusiApp</string>
+    <string name="s_suly">Súly</string>
+    <string name="s_magassag">Magasság</string>
+</resources>
